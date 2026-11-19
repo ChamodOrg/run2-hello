@@ -12,10 +12,10 @@ A visitor opens the app and sees "Hello, World!".
 ## Decisions
 
 - The greeting text is fixed: "Hello, World!".
-- The page is a single screen with no navigation or other content. *assumed*
-- The page works on desktop and mobile screens. *assumed*
+- The page is a single screen with no navigation or other content.
 
 ## Out of Scope
 
 - Personalised greetings or a name field.
 - Changing the greeting text or language.
+
