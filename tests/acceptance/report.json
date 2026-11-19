@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-11-19T15:47:45.937Z",
+  "commit": "18f8a4da87441f8e6958a3689b9cc3d957be7863",
+  "baseUrl": "http://http-run2-hello-he-development-default-ebc98d17.openchoreoapis.localhost:19080/",
+  "isolation": "The app has no containers or writes; each scenario only reads the public page. Scenario 2 used a freshly closed and relaunched browser so no prior state carried over.",
+  "captureWindow": {
+    "first": "2026-11-19T15:47:34.382Z",
+    "last": "2026-11-19T15:47:45.897Z"
+  },
+  "scenarios": [
+    {
+      "feature": "F1 Greeting",
+      "featureFile": "specs/validation/acceptance/F1-greeting.feature",
+      "line": 6,
+      "rule": "The page's main heading is the fixed greeting \"Hello, World!\"",
+      "scenario": "Opening the app",
+      "tags": [
+        "@story-F1.1"
+      ],
+      "outcome": "passed",
+      "steps": [
+        {
+          "text": "Vera the visitor has the app's address",
+          "keyword": "Given",
+          "command": "cat /tmp/validation-context.json"
+        },
+        {
+          "text": "Vera opens the app",
+          "keyword": "When",
+          "command": "agent-browser open <base url>"
+        },
+        {
+          "text": "the page's main heading reads \"Hello, World!\"",
+          "keyword": "Then",
+          "command": "agent-browser get text h1",
+          "exit": 0,
+          "observed": "Hello, World! (h1 count 1)"
+        }
+      ]
+    },
+    {
+      "feature": "F1 Greeting",
+      "featureFile": "specs/validation/acceptance/F1-greeting.feature",
+      "line": 14,
+      "rule": "The greeting is public; no sign-in is needed to see it",
+      "scenario": "Visitor sees the greeting without an account",
+      "tags": [
+        "@story-F1.2"
+      ],
+      "outcome": "passed",
+      "steps": [
+        {
+          "text": "Vera the visitor has never signed in",
+          "keyword": "Given",
+          "command": "agent-browser close (fresh browser, no session state)"
+        },
+        {
+          "text": "Vera opens the app",
+          "keyword": "When",
+          "command": "agent-browser open <base url>"
+        },
+        {
+          "text": "the page's main heading reads \"Hello, World!\"",
+          "keyword": "Then",
+          "command": "agent-browser wait --text \"Hello, World!\" --timeout 3000",
+          "exit": 0
+        },
+        {
+          "text": "Vera is not asked to sign in",
+          "keyword": "And",
+          "command": "agent-browser get count \"input,button,a[href*=login],a[href*=signin]\"",
+          "exit": 0,
+          "observed": "0; URL stayed at the base URL, all requests 200, no redirect"
+        }
+      ]
+    }
+  ]
+}
