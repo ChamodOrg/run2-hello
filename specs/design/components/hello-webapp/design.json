@@ -1,0 +1,14 @@
+{
+  "name": "hello-webapp",
+  "type": "web-application",
+  "version": "0.1.0",
+  "language": "TypeScript",
+  "buildpack": "docker",
+  "appPath": "hello-webapp",
+  "entrypoint": "deployment/web-application",
+  "exposure": "internet",
+  "dependencies": [],
+  "description": "Single-page React app, the product's only surface: one public screen that shows the fixed greeting \"Hello, World!\" as its main heading. It needs no sign-in, calls no API and stores nothing. It does not offer navigation, personalisation or any other content.",
+  "stories": ["F1.1", "F1.2"],
+  "skillsPinned": ["react-webapp", "oxygen-ui-design-system"]
+}
