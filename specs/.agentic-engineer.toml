@@ -1,0 +1,4 @@
+apiVersion = "agentic-engineer/v1"
+name = "run2-hello"
+createdAt = "2026-11-19T15:31:19Z"
+idea = "simple hello world"
