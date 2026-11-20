@@ -8,7 +8,7 @@
   "entrypoint": "deployment/web-application",
   "exposure": "internet",
   "dependencies": [],
-  "description": "Single-page React app, the product's only surface: one public screen that shows the fixed greeting \"Hello, World!\" as its main heading. It needs no sign-in, calls no API and stores nothing. It does not offer navigation, personalisation or any other content.",
+  "description": "Single-page React app, the product's only surface: one public screen that shows the fixed greeting \"Hello, World!\" as its main heading. It needs no sign-in, calls no API and stores nothing. It also serves a GET /health path from the same web server that answers 200 with the plain text \"ok\", for liveness checks; it is not part of the visible UI. It does not offer navigation, personalisation or any other content.",
   "stories": ["F1.1", "F1.2"],
   "skillsPinned": ["react-webapp", "oxygen-ui-design-system"]
 }
